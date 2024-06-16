@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// #include <omp.h>
 
 #include "bmplib.h"
 #include "hw2.h"
@@ -16,7 +15,7 @@
 // Your job is to modify and optimize it for better performance!
 
 static Pixel convolution(
-        Pixel* input, int x, int y, int width, int height, float* filter) {
+        Pixel* input, int x, int y, int width, int height, float* filter, Pixel* output) {
     // double r = 0;
     // double g = 0;
     // double b = 0;
@@ -91,18 +90,18 @@ static Pixel convolution(
     if (g > 255) g = 255;
     if (b > 255) b = 255;
     
-    Pixel p;
+    // Pixel p;
     // memset(&p, 0, sizeof(p));
 
-    p.r = (unsigned char)r;
-    p.g = (unsigned char)g;
-    p.b = (unsigned char)b;
+    // p.r = (unsigned char)r;
+    // p.g = (unsigned char)g;
+    // p.b = (unsigned char)b;
     // Pixel* output;
-    // output -> r = (unsigned char)r;
-    // output -> g = (unsigned char)g;
-    // output -> b = (unsigned char)b;
+    output -> r = (unsigned char)r;
+    output -> g = (unsigned char)g;
+    output -> b = (unsigned char)b;
 
-    return p;
+    // return p;
 }
 
 
@@ -117,8 +116,8 @@ void filter_optimized(void* args[]) {
     // #pragma omp parallel for collapse(2)
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
-            output[x + y * width] = convolution(input, x, y, width, height, filter);
-            // convolution(input, x, y, width, height, filter, &output[x + y * width]);
+            // output[x + y * width] = convolution(input, x, y, width, height, filter);
+            convolution(input, x, y, width, height, filter, &output[x + y * width]);
             // convolution(input, x, y, width, height, filter);
         }
     }
