@@ -7,11 +7,14 @@
 
 // Convolution 함수
 static void convolution(Pixel* input, int x, int y, int width, int height, float* filter, Pixel* output) {
-    double r = 0;
-    double g = 0;
-    double b = 0;
+    // double r = 0;
+    // double g = 0;
+    // double b = 0;
+    int r = 0;
+    int g = 0;
+    int b = 0;
 
-    int nx, ny, pixel_index;
+    int nx, ny, pixel_index, filter_index;
 
     // Top-left
     nx = x - 1; ny = y - 1;
