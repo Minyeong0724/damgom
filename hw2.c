@@ -102,7 +102,7 @@ static Pixel convolution(
     output -> g = (unsigned char)g;
     output -> b = (unsigned char)b;
 
-    return p;
+    // return p;
 }
 
 
