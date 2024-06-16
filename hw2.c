@@ -91,7 +91,7 @@ static Pixel convolution(
     if (g > 255) g = 255;
     if (b > 255) b = 255;
     
-    Pixel p;
+    // Pixel p;
     // memset(&p, 0, sizeof(p));
 
     // p.r = (unsigned char)r;
