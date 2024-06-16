@@ -16,91 +16,90 @@ static void convolution(Pixel* input, int x, int y, int width, int height, float
     // Top-left
     nx = x - 1; ny = y - 1;
     if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
-        filter_index = 0;
         pixel_index = nx + ny * width;
-        r += input[pixel_index].r * filter[filter_index];
-        g += input[pixel_index].g * filter[filter_index];
-        b += input[pixel_index].b * filter[filter_index];
+        r += input[pixel_index].r * filter[0];
+        g += input[pixel_index].g * filter[0];
+        b += input[pixel_index].b * filter[0];
     }
 
     // Top-middle
     nx = x; ny = y - 1;
     if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
-        filter_index = 1;
+        // filter_index = 1;
         pixel_index = nx + ny * width;
-        r += input[pixel_index].r * filter[filter_index];
-        g += input[pixel_index].g * filter[filter_index];
-        b += input[pixel_index].b * filter[filter_index];
+        r += input[pixel_index].r * filter[1];
+        g += input[pixel_index].g * filter[1];
+        b += input[pixel_index].b * filter[1];
     }
 
     // Top-right
     nx = x + 1; ny = y - 1;
     if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
-        filter_index = 2;
+        // filter_index = 2;
         pixel_index = nx + ny * width;
-        r += input[pixel_index].r * filter[filter_index];
-        g += input[pixel_index].g * filter[filter_index];
-        b += input[pixel_index].b * filter[filter_index];
+        r += input[pixel_index].r * filter[2];
+        g += input[pixel_index].g * filter[2];
+        b += input[pixel_index].b * filter[2];
     }
 
     // Middle-left
     nx = x - 1; ny = y;
     if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
-        filter_index = 3;
+        // filter_index = 3;
         pixel_index = nx + ny * width;
-        r += input[pixel_index].r * filter[filter_index];
-        g += input[pixel_index].g * filter[filter_index];
-        b += input[pixel_index].b * filter[filter_index];
+        r += input[pixel_index].r * filter[3];
+        g += input[pixel_index].g * filter[3];
+        b += input[pixel_index].b * filter[3];
     }
 
     // Middle-middle
     nx = x; ny = y;
     if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
-        filter_index = 4;
+        // filter_index = 4;
         pixel_index = nx + ny * width;
-        r += input[pixel_index].r * filter[filter_index];
-        g += input[pixel_index].g * filter[filter_index];
-        b += input[pixel_index].b * filter[filter_index];
+        r += input[pixel_index].r * filter[4];
+        g += input[pixel_index].g * filter[4];
+        b += input[pixel_index].b * filter[4];
     }
 
     // Middle-right
     nx = x + 1; ny = y;
     if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
-        filter_index = 5;
+        // filter_index = 5;
         pixel_index = nx + ny * width;
-        r += input[pixel_index].r * filter[filter_index];
-        g += input[pixel_index].g * filter[filter_index];
-        b += input[pixel_index].b * filter[filter_index];
+        r += input[pixel_index].r * filter[5];
+        g += input[pixel_index].g * filter[5];
+        b += input[pixel_index].b * filter[5];
     }
 
     // Bottom-left
     nx = x - 1; ny = y + 1;
     if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
-        filter_index = 6;
+        // filter_index = 6;
         pixel_index = nx + ny * width;
-        r += input[pixel_index].r * filter[filter_index];
-        g += input[pixel_index].g * filter[filter_index];
-        b += input[pixel_index].b * filter[filter_index];
+        r += input[pixel_index].r * filter[6];
+        g += input[pixel_index].g * filter[6];
+        b += input[pixel_index].b * filter[6];
     }
 
     // Bottom-middle
     nx = x; ny = y + 1;
     if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
-        filter_index = 7;
+        // filter_index = 7;
         pixel_index = nx + ny * width;
-        r += input[pixel_index].r * filter[filter_index];
-        g += input[pixel_index].g * filter[filter_index];
-        b += input[pixel_index].b * filter[filter_index];
+        r += input[pixel_index].r * filter[7];
+        g += input[pixel_index].g * filter[7];
+        b += input[pixel_index].b * filter[7];
     }
 
     // Bottom-right
     nx = x + 1; ny = y + 1;
     if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
-        filter_index = 8;
+        // filter_index = 8;
         pixel_index = nx + ny * width;
-        r += input[pixel_index].r * filter[filter_index];
-        g += input[pixel_index].g * filter[filter_index];
-        b += input[pixel_index].b * filter[filter_index];
+        r += input[pixel_index].r * filter[8];
+        g += input[pixel_index].g * filter[8];
+        b += input[pixel_index].b * filter[8];
     }
 
     // 값 범위를 0-255 사이로 클램핑
