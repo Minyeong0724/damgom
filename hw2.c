@@ -44,17 +44,16 @@ static Pixel convolution(
     // :allocate value of r,g,b to output directly. (No use of pixel* p.)
     // +) using inline function & eliminate for loop (but same...... )
 
-     for (int dx = -1; dx <= 1; ++dx) {
-        int nx = x + dx;
-        for (int dy = -1; dy <= 1; ++dy) {
-            if(nx < 0 || nx >= width) continue;
-            int ny = y + dy;
-            if(ny < 0 || ny >= height) continue;
-            int filter_index = (dx + 1) + (dy + 1) * 3;
+    apply_filter(input, x-1, y-1, width, height, filter, &r, &g, &b, 0);
+    apply_filter(input, x,   y-1, width, height, filter, &r, &g, &b, 1);
+    apply_filter(input, x+1, y-1, width, height, filter, &r, &g, &b, 2);
+    apply_filter(input, x-1, y,   width, height, filter, &r, &g, &b, 3);
+    apply_filter(input, x,   y,   width, height, filter, &r, &g, &b, 4);
+    apply_filter(input, x+1, y,   width, height, filter, &r, &g, &b, 5);
+    apply_filter(input, x-1, y+1, width, height, filter, &r, &g, &b, 6);
+    apply_filter(input, x,   y+1, width, height, filter, &r, &g, &b, 7);
+    apply_filter(input, x+1, y+1, width, height, filter, &r, &g, &b, 8);
 
-            apply_filter(input, nx, ny, width, height, filter, &r, &g, &b, filter_index);
-        }
-     }
     if (r < 0) r = 0;
     if (g < 0) g = 0;
     if (b < 0) b = 0;
