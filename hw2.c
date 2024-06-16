@@ -14,7 +14,7 @@ static void convolution(Pixel* input, int x, int y, int width, int height, float
     int g = 0;
     int b = 0;
 
-    int nx, ny, pixel_index, filter_index;
+    int nx, ny, pixel_index;
 
     // Top-left
     nx = x - 1; ny = y - 1;
